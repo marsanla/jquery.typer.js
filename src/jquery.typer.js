@@ -19,7 +19,9 @@ String.prototype.rightChars = function(n){
       typeDelay         : 200,
       clearOnHighlight  : true,
       typerDataAttr     : 'data-typer-targets',
-      typerInterval     : 2000
+      typerInterval     : 2000,
+      highlightColor	  : null, // set to null if not customized
+      textColor			    : null // set to null if not customized
     },
     highlight,
     clearText,
@@ -226,8 +228,8 @@ String.prototype.rightChars = function(n){
       oldRight: currentText.rightChars(j - 1),
       leftStop: i,
       rightStop: currentText.length - j,
-      primaryColor: $e.css('color'),
-      backgroundColor: $e.css('background-color'),
+      primaryColor: $.typer.options.highlightColor || $e.css('color'),
+      backgroundColor: $.typer.options.textColor || $e.css('background-color'),
       text: newString
     });
 
